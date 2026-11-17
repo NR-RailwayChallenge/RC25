@@ -4,8 +4,7 @@ PicoInterface::PicoInterface(uint32_t Tx, uint32_t Rx)
 {
     memset(&pBuf,0,sizeof(pBuf));
     memset(&pDiag,0,sizeof(pDiag));
-    // HardwareSerial is abstract on this Arduino core; use the configured UART.
-    ser = &Serial1;
+    ser = new HardwareSerial(Rx, Tx);
     ser->begin(PICO_SERIAL_BAUD);
 }
 
